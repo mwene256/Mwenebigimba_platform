@@ -1,0 +1,17 @@
+runtime: nodejs20
+instance_class: F1
+env_variables:
+  NODE_ENV: "production"
+
+# Automatic scaling and routing for Mwenebigimba Platform
+handlers:
+  - url: /.*
+    script: auto
+    secure: always
+
+# Error handlers for professional institutional fallback
+error_handlers:
+  - file: error.html
+    error_code: over_quota
+  - file: error.html
+    error_code: default_error
