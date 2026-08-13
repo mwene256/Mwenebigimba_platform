@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mwenebigimba - Master Terminal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Hanken+Grotesk:wght@600;700&amp;family=Inter:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline-variant": "#3b494b",
+                      "background": "#0e131e",
+                      "surface-container-low": "#171b27",
+                      "tertiary-fixed-dim": "#ffb4ab",
+                      "outline": "#849495",
+                      "inverse-surface": "#dee2f2",
+                      "on-primary": "#00363a",
+                      "on-secondary": "#053900",
+                      "on-surface": "#dee2f2",
+                      "on-tertiary": "#690006",
+                      "secondary-container": "#2ff801",
+                      "surface": "#0e131e",
+                      "inverse-on-surface": "#2b303c",
+                      "tertiary": "#fff3f2",
+                      "on-tertiary-container": "#c10014",
+                      "surface-tint": "#ff2a7a",
+                      "on-tertiary-fixed-variant": "#93000c",
+                      "surface-dim": "#0e131e",
+                      "on-secondary-container": "#0f6d00",
+                      "primary-fixed": "#ff80b3",
+                      "primary-fixed-dim": "#ff2a7a",
+                      "on-secondary-fixed": "#022100",
+                      "error": "#ffb4ab",
+                      "surface-container-highest": "#303541",
+                      "on-primary-fixed-variant": "#004f54",
+                      "on-surface-variant": "#b9cacb",
+                      "on-primary-container": "#006970",
+                      "on-background": "#dee2f2",
+                      "on-tertiary-fixed": "#410002",
+                      "surface-container-lowest": "#090e19",
+                      "surface-variant": "#303541",
+                      "surface-bright": "#343946",
+                      "tertiary-fixed": "#ffdad6",
+                      "error-container": "#93000a",
+                      "on-error-container": "#ffdad6",
+                      "primary": "#ff2a7a",
+                      "secondary-fixed-dim": "#2ae500",
+                      "tertiary-container": "#ffcec8",
+                      "secondary-fixed": "#79ff5b",
+                      "on-primary-fixed": "#002022",
+                      "secondary": "#d7ffc5",
+                      "inverse-primary": "#006970",
+                      "primary-container": "#ff2a7a",
+                      "on-error": "#690005",
+                      "surface-container-high": "#252a36",
+                      "surface-container": "#1b1f2b",
+                      "on-secondary-fixed-variant": "#095300"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "xl": "48px",
+                      "sm": "8px",
+                      "base": "4px",
+                      "lg": "24px",
+                      "grid-gutter": "16px",
+                      "md": "16px",
+                      "xs": "4px",
+                      "grid-margin": "24px"
+              },
+              "fontFamily": {
+                      "label-caps": [
+                              "JetBrains Mono"
+                      ],
+                      "display-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-sm": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "data-lg": [
+                              "JetBrains Mono"
+                      ],
+                      "data-md": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-md": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg": [
+                              "36px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-sm": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "data-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "data-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body {
+            background-color: #05070A;
+        }
+        
+        .rim-light {
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .glass-panel {
+            background: rgba(22, 27, 34, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .glass-panel:hover {
+            border-color: #ff2a7a;
+        }
+
+        .scanning-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ff2a7a, transparent);
+            animation: scan 2s linear infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes scan {
+            0% { top: 0; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+
+        .neon-glow {
+            text-shadow: 0 0 10px rgba(255, 42, 122, 0.5);
+        }
+        
+        .pulse-dot {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 42, 122, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(255, 42, 122, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 42, 122, 0); }
+        }
+        
+        .ticker-wrap {
+            width: 100%;
+            overflow: hidden;
+            background-color: rgba(14, 19, 30, 0.9);
+            border-bottom: 1px solid #3b494b;
+        }
+        
+        .ticker {
+            display: inline-block;
+            white-space: nowrap;
+            padding-right: 100%;
+            box-sizing: content-box;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-name: ticker;
+            animation-duration: 30s;
+        }
+        
+        @keyframes ticker {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+        
+        .ticker-item {
+            display: inline-block;
+            padding: 0 2rem;
+            color: #dee2f2;
+        }
+        
+        .bg-shader {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background: radial-gradient(circle at 50% 50%, rgba(255,42,122,0.05) 0%, transparent 60%);
+        }
+        
+        .floating-dollars {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            opacity: 0.05;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="white"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>');
+            background-size: 100px;
+            animation: drift 60s linear infinite;
+        }
+        
+        @keyframes drift {
+            from { background-position: 0 0; }
+            to { background-position: 1000px 1000px; }
+        }
+    </style>
+</head>
+<body class="text-on-background font-body-md h-screen overflow-hidden flex bg-transparent relative">
+<div class="bg-shader"></div>
+<div class="floating-dollars"></div>
+<div class="fixed inset-0 pointer-events-none flex items-center justify-center z-[-1] opacity-[0.02] font-display-lg text-[15rem] text-white font-bold rotate-[-12deg] whitespace-nowrap">Mwenebigimba</div>
+<!-- SideNavBar -->
+<nav class="w-[280px] h-screen fixed left-0 top-0 border-r border-outline-variant bg-surface-container-low/90 backdrop-blur-md flex flex-col py-lg px-md z-40 hidden md:flex">
+<div class="mb-xl flex items-center gap-sm">
+<div class="w-8 h-8 rounded bg-primary flex items-center justify-center font-display-lg text-lg text-white font-bold">M</div>
+<div>
+<h1 class="font-display-lg text-[22px] font-bold text-surface-tint tracking-tighter">Mwenebigimba</h1>
+<p class="font-label-caps text-label-caps text-surface-tint opacity-80 mt-xs">Institutional Grade</p>
+</div>
+</div>
+<button class="bg-primary text-[#05070A] font-label-caps text-label-caps py-sm px-md rounded mb-xl hover:shadow-[0_0_15px_rgba(255,42,122,0.3)] active:scale-95 transition-all">
+            New Analysis
+        </button>
+<ul class="flex-1 space-y-sm">
+<li>
+<a class="flex items-center space-x-md py-sm px-sm text-on-surface-variant font-medium hover:bg-surface-container-highest transition-colors duration-200 hover:text-primary active:scale-95" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-headline-sm text-headline-sm">Terminal</span>
+</a>
+</li>
+<li>
+<a class="flex items-center space-x-md py-sm px-sm text-on-surface-variant font-medium hover:bg-surface-container-highest transition-colors duration-200 hover:text-primary active:scale-95" href="#">
+<span class="material-symbols-outlined">query_stats</span>
+<span class="font-headline-sm text-headline-sm">AI Signals</span>
+</a>
+</li>
+<li>
+<a class="flex items-center space-x-md py-sm px-sm text-on-surface-variant font-medium hover:bg-surface-container-highest transition-colors duration-200 hover:text-primary active:scale-95" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-headline-sm text-headline-sm">Portfolio</span>
+</a>
+</li>
+<li>
+<a class="flex items-center space-x-md py-sm px-sm text-on-surface-variant font-medium hover:bg-surface-container-highest transition-colors duration-200 hover:text-primary active:scale-95" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="font-headline-sm text-headline-sm">Performance</span>
+</a>
+</li>
+<li>
+<a class="flex items-center space-x-md py-sm px-sm text-primary-container font-bold border-r-2 border-primary-container hover:bg-surface-container-highest transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="font-headline-sm text-headline-sm">Payment Portal</span>
+</a>
+</li><li class="mt-4 pt-4 border-t border-outline-variant/30">
+<a class="flex items-center space-x-md py-sm px-sm text-on-surface-variant font-medium hover:bg-surface-container-highest transition-colors duration-200 hover:text-primary active:scale-95 opacity-70" href="#">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+<span class="font-headline-sm text-headline-sm">Admin</span>
+</a>
+</li><li class="mt-2">
+<a class="flex items-center space-x-md py-sm px-sm text-on-surface-variant font-medium hover:bg-surface-container-highest transition-colors duration-200 hover:text-primary active:scale-95 opacity-70" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-headline-sm text-headline-sm">Emergency Ledger<span class="ml-xs text-[10px] text-primary opacity-100 font-label-caps">[BIO-REQ]</span></span>
+</a>
+</li>
+</ul>
+<div class="mt-auto border-t border-outline-variant pt-md">
+<ul class="space-y-sm">
+<li>
+<a class="flex items-center space-x-md py-sm px-sm text-on-surface-variant font-medium hover:bg-surface-container-highest transition-colors duration-200 hover:text-primary active:scale-95" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-caps text-label-caps">Support</span>
+</a>
+</li>
+<li>
+<a class="flex items-center space-x-md py-sm px-sm text-on-surface-variant font-medium hover:bg-surface-container-highest transition-colors duration-200 hover:text-primary active:scale-95" href="#">
+<span class="material-symbols-outlined">terminal</span>
+<span class="font-label-caps text-label-caps">Logs</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col ml-0 md:ml-[280px] w-full max-w-full md:max-w-[calc(100%-280px)] h-screen overflow-hidden relative z-10">
+<!-- TopNavBar -->
+<header class="docked full-width top-0 sticky z-50 border-b border-outline-variant bg-surface/80 dark:bg-surface/80 backdrop-blur-xl flex justify-between items-center h-16 px-grid-margin w-full">
+<div class="flex items-center space-x-lg">
+<span class="font-headline-md text-headline-md font-bold text-surface-tint">Mwenebigimba</span>
+<nav class="hidden lg:flex space-x-md ml-lg">
+<a class="text-primary border-b-2 border-primary pb-1 font-headline-sm text-headline-sm hover:text-primary/80 transition-all active:opacity-80" href="#">Market</a>
+<a class="text-on-surface-variant font-headline-sm text-headline-sm hover:text-primary transition-all active:opacity-80" href="#">Indices</a>
+<a class="text-on-surface-variant font-headline-sm text-headline-sm hover:text-primary transition-all active:opacity-80" href="#">Volatility</a>
+<a class="text-on-surface-variant font-headline-sm text-headline-sm hover:text-primary transition-all active:opacity-80" href="#">Synthetic</a>
+</nav>
+</div>
+<div class="flex items-center space-x-md">
+<button class="text-on-surface-variant hover:text-primary transition-colors active:opacity-80">
+<span class="material-symbols-outlined">smartphone</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors active:opacity-80">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="relative group">
+<button class="text-on-surface-variant hover:text-primary transition-colors active:opacity-80 flex items-center">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+</button>
+<!-- Hidden Admin Tracker -->
+<div class="absolute right-0 top-full mt-2 w-48 bg-surface-container-high border border-outline-variant rounded p-sm hidden group-hover:block z-50 shadow-lg">
+<div class="text-label-caps text-on-surface-variant mb-1">Markup Rev (30%)</div>
+<div class="text-secondary-fixed-dim font-data-md">+$1,245.80</div>
+</div>
+</div>
+<button class="bg-surface-container border border-primary text-primary font-label-caps text-label-caps py-xs px-sm rounded hover:bg-primary hover:text-[#05070A] transition-all active:opacity-80">
+                    Connect Wallet
+                </button>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant overflow-hidden">
+<img class="object-cover w-full h-full" data-alt="A macro shot of a sleek, abstract metallic sphere glowing with internal blue light, representing a user profile avatar in a high-tech trading interface. The lighting is dramatic and cinematic, set against a dark, moody background with subtle lens flares. The overall mood is sophisticated and futuristic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRXzBAjjzd80TvFMMXvpwn8Rq0r94920U73yb8ZoQ6r8_vBimkNs6mcqJHPDTqJe7RoXuxIosp7S0Yt82GKwGxcs2qzdZv7r7M_sgE6wVKrCzijISe6Sr7GlHIkZY0odjGwFx1l7u6E10KoMmrBq6zzh0runpjyYnAVgH8pFKiqugg8mdJUHhlTQJ3fJpcoGpoE5eotcc7wLDqawcj_15SjVy0ot9_JLfwpeG3Az-rB9w4hRlBxY8A"/>
+</div>
+</div>
+</header>
+<!-- Ticker -->
+<div class="ticker-wrap h-8 flex items-center">
+<div class="ticker font-data-md text-data-md">
+<div class="ticker-item"><span class="text-on-surface-variant">VIX 100</span> <span class="text-secondary-fixed-dim ml-xs">▲ 2415.63 (+0.4%)</span></div>
+<div class="ticker-item"><span class="text-on-surface-variant">VIX 75</span> <span class="text-error ml-xs">▼ 1892.11 (-1.2%)</span></div>
+<div class="ticker-item"><span class="text-on-surface-variant">VIX 50</span> <span class="text-secondary-fixed-dim ml-xs">▲ 984.45 (+0.1%)</span></div>
+<div class="ticker-item"><span class="text-on-surface-variant">VIX 25</span> <span class="text-secondary-fixed-dim ml-xs">▲ 412.89 (+0.8%)</span></div>
+<div class="ticker-item"><span class="text-on-surface-variant">VIX 10</span> <span class="text-error ml-xs">▼ 105.22 (-0.3%)</span></div>
+</div>
+</div>
+<!-- Dashboard Canvas -->
+<main class="flex-1 overflow-y-auto p-grid-margin bg-transparent"><div class="grid grid-cols-12 gap-grid-gutter h-full">
+<!-- Left Column: Transaction Interface -->
+<div class="col-span-12 lg:col-span-8 flex flex-col gap-grid-gutter">
+<div class="glass-panel rim-light rounded p-md flex-1 relative overflow-hidden flex flex-col">
+<div class="scanning-line"></div>
+<div class="flex justify-between items-center mb-lg">
+<h2 class="font-headline-md text-headline-md text-on-surface">Payment Portal</h2>
+<div class="flex bg-[#05070A] rounded p-xs border border-outline-variant">
+<button class="px-md py-xs bg-primary text-[#05070A] font-label-caps text-label-caps rounded">Deposit</button>
+<button class="px-md py-xs text-on-surface-variant font-label-caps text-label-caps hover:text-primary">Withdrawal</button>
+</div>
+</div>
+<!-- Mobile Money Section -->
+<div class="mb-xl"><h3 class="font-label-caps text-label-caps text-primary mb-md">Local Mobile Money</h3><div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-md mb-md"><div class="space-y-xs"><div class="text-[10px] font-label-caps text-on-surface-variant px-xs">Uganda</div><div class="bg-[#05070A] border border-primary p-sm rounded flex flex-col items-center cursor-pointer mb-xs"><div class="font-bold text-xs">MTN UG</div><div class="text-[8px] opacity-50">API: MTN-UG-V2</div></div><div class="bg-[#05070A] border border-outline-variant p-sm rounded flex flex-col items-center cursor-pointer hover:border-primary"><div class="font-bold text-xs">Airtel UG</div><div class="text-[8px] opacity-50">API: ART-UG-V1</div></div></div><div class="space-y-xs"><div class="text-[10px] font-label-caps text-on-surface-variant px-xs">Kenya</div><div class="bg-[#05070A] border border-outline-variant p-sm rounded flex flex-col items-center cursor-pointer hover:border-primary mb-xs"><div class="font-bold text-xs">M-Pesa KE</div><div class="text-[8px] opacity-50">API: MP-KE-C2B</div></div></div><div class="space-y-xs"><div class="text-[10px] font-label-caps text-on-surface-variant px-xs">Tanzania</div><div class="bg-[#05070A] border border-outline-variant p-sm rounded flex flex-col items-center cursor-pointer hover:border-primary mb-xs"><div class="font-bold text-xs">Vodacom TZ</div><div class="text-[8px] opacity-50">API: VDC-TZ-M</div></div><div class="bg-[#05070A] border border-outline-variant p-sm rounded flex flex-col items-center cursor-pointer hover:border-primary mb-xs"><div class="font-bold text-xs">Tigo TZ</div><div class="text-[8px] opacity-50">API: TGO-TZ-P</div></div><div class="bg-[#05070A] border border-outline-variant p-sm rounded flex flex-col items-center cursor-pointer hover:border-primary"><div class="font-bold text-xs">M-Pesa TZ</div><div class="text-[8px] opacity-50">API: MP-TZ-V1</div></div></div><div class="space-y-xs"><div class="text-[10px] font-label-caps text-on-surface-variant px-xs">Rwanda</div><div class="bg-[#05070A] border border-outline-variant p-sm rounded flex flex-col items-center cursor-pointer hover:border-primary mb-xs"><div class="font-bold text-xs">MTN RW</div><div class="text-[8px] opacity-50">API: MTN-RW-V2</div></div><div class="bg-[#05070A] border border-outline-variant p-sm rounded flex flex-col items-center cursor-pointer hover:border-primary"><div class="font-bold text-xs">Airtel RW</div><div class="text-[8px] opacity-50">API: ART-RW-V1</div></div></div><div class="space-y-xs"><div class="text-[10px] font-label-caps text-on-surface-variant px-xs">Burundi</div><div class="bg-[#05070A] border border-outline-variant p-sm rounded flex flex-col items-center cursor-pointer hover:border-primary mb-xs"><div class="font-bold text-xs">Lumicash</div></div><div class="bg-[#05070A] border border-outline-variant p-sm rounded flex flex-col items-center cursor-pointer hover:border-primary"><div class="font-bold text-xs">EcoCash</div></div></div></div><div class="space-y-md"><div class="grid grid-cols-2 gap-md"><div><label class="font-label-caps text-[10px] text-on-surface-variant block mb-xs">Phone Number</label><input class="w-full bg-[#05070A] border border-outline-variant rounded p-sm text-on-surface font-data-md focus:border-primary outline-none" placeholder="+256..." type="text"/><div class="text-[8px] text-primary/50 mt-xs">Interception: Emergency Ledger Active</div></div><div><label class="font-label-caps text-[10px] text-on-surface-variant block mb-xs">Amount (UGX/KES/TZS/RWF/BIF)</label><input class="w-full bg-[#05070A] border border-outline-variant rounded p-sm text-on-surface font-data-md focus:border-primary outline-none" placeholder="0.00" type="number"/><div class="text-[8px] text-secondary-fixed-dim mt-xs">Routing: 30% Institutional Markup Applied</div></div></div></div></div>
+<!-- Digital Wallets Section -->
+<div>
+<h3 class="font-label-caps text-label-caps text-primary mb-md">Digital Wallets</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="bg-[#05070A] border border-outline-variant p-md rounded">
+<div class="flex justify-between items-center mb-sm">
+<span class="font-data-md text-on-surface">USDT (TRC20)</span>
+<span class="material-symbols-outlined text-primary">qr_code_2</span>
+</div>
+<div class="text-xs font-data-md text-on-surface-variant break-all bg-surface-container p-xs rounded mb-sm">TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t</div>
+<button class="w-full border border-primary text-primary font-label-caps text-[10px] py-xs rounded hover:bg-primary hover:text-[#05070A]">Copy Address</button>
+</div>
+<div class="bg-[#05070A] border border-outline-variant p-md rounded opacity-50">
+<div class="flex justify-between items-center mb-sm">
+<span class="font-data-md text-on-surface">BTC / ETH</span>
+<span class="material-symbols-outlined">lock</span>
+</div>
+<div class="text-[10px] text-center">Select asset to generate address</div>
+</div>
+</div>
+</div>
+<div class="mt-md mb-sm px-xs">
+<div class="flex justify-between items-center text-[10px] font-label-caps text-on-surface-variant">
+<span>Min: $2 | Max: Unlimited</span>
+<span class="text-primary/50">Emergency Logic Enabled</span>
+</div>
+</div><button class="mt-auto w-full bg-primary text-[#05070A] font-headline-sm py-md rounded hover:shadow-[0_0_20px_rgba(255,42,122,0.4)] transition-all" onclick="document.getElementById('transaction-modal').classList.remove('hidden')">Initiate Transaction</button>
+</div>
+</div>
+<!-- Right Column: Agent Search & Oversight -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-grid-gutter"><div class="glass-panel rim-light rounded p-md bg-error-container/10 border-error/20">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-md flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary">shield_lock</span> Security Perimeter
+    </h2>
+<!-- Root Access Protection -->
+<div class="mb-md p-sm bg-[#05070A] border border-outline-variant rounded">
+<div class="flex justify-between items-center mb-xs">
+<span class="text-label-caps text-[10px] text-on-surface-variant">Root Access Protection</span>
+<span class="flex items-center gap-xs text-secondary-fixed-dim text-[10px]">
+<span class="material-symbols-outlined text-xs">key</span> Hardware Key Active
+            </span>
+</div>
+<div class="h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed-dim w-full"></div>
+</div><div class="mt-md pt-md border-t border-outline-variant/30 space-y-sm"><div class="text-label-caps text-[10px] text-primary mb-xs">Verified 2FA Channels</div><div class="flex items-center justify-between text-[10px] font-data-md"><div class="flex items-center gap-xs text-on-surface-variant"><span class="material-symbols-outlined text-xs">mail</span><span>mwene256@gmail.com</span></div><span class="text-secondary-fixed-dim">Verified</span></div><div class="flex items-center justify-between text-[10px] font-data-md"><div class="flex items-center gap-xs text-on-surface-variant"><span class="material-symbols-outlined text-xs">sms</span><span>+256 754757141</span></div><span class="text-secondary-fixed-dim">Verified</span></div></div>
+</div>
+<!-- Real-time Security Audit -->
+<div class="mb-md">
+<div class="text-label-caps text-[10px] text-on-surface-variant mb-xs">Real-time Security Audit</div>
+<div class="space-y-xs font-data-md text-[10px]">
+<div class="flex justify-between text-on-surface-variant border-b border-outline-variant/30 pb-xs">
+<span>Admin_01 (Current)</span>
+<span class="text-primary">192.168.1.104</span>
+</div>
+<div class="flex justify-between text-on-surface-variant/70">
+<span>System_Root</span>
+<span>10.0.0.45</span>
+</div>
+</div>
+</div>
+<!-- Emergency Lockdown -->
+<button class="w-full bg-primary text-[#05070A] font-label-caps text-label-caps py-sm rounded hover:shadow-[0_0_20px_rgba(255,42,122,0.5)] transition-all mb-sm">
+        Emergency Lockdown
+    </button>
+<div class="mt-md pt-md border-t border-outline-variant/30 mb-md"><div class="text-label-caps text-[10px] text-primary mb-sm">Recent Security Events</div><div class="space-y-xs"><div class="flex justify-between items-start text-[10px] font-data-md bg-[#05070A] p-xs rounded border border-outline-variant/30"><div class="flex flex-col"><span class="text-error">Transaction Flagged: High Volume</span><span class="text-on-surface-variant/70">Routed to Emergency Ledger</span></div><span class="text-on-surface-variant/50">14:22:01</span></div><div class="flex justify-between items-start text-[10px] font-data-md p-xs"><div class="flex flex-col"><span class="text-on-surface-variant">New Admin Login: 192.168.1.104</span><span class="text-on-surface-variant/70">Session Authorized</span></div><span class="text-on-surface-variant/50">14:15:45</span></div><div class="flex justify-between items-start text-[10px] font-data-md p-xs"><div class="flex flex-col"><span class="text-secondary-fixed-dim">Shield Protocol: Auto-Update</span><span class="text-on-surface-variant/70">Integrity Check Passed</span></div><span class="text-on-surface-variant/50">13:50:12</span></div></div></div><div class="flex items-center gap-xs text-[10px] text-on-surface-variant italic">
+<span class="material-symbols-outlined text-xs">fingerprint</span>
+        Biometric Re-auth Required for Ledger Access
+    </div>
+</div>
+<!-- Agent Search -->
+<div class="glass-panel rim-light rounded p-md">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-md flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary">person_search</span> Agent Search
+            </h2>
+<div class="relative mb-md">
+<input class="w-full bg-[#05070A] border border-outline-variant rounded pl-10 pr-sm py-sm text-on-surface font-body-sm focus:border-primary outline-none" placeholder="Search local agents..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+</div>
+<div class="space-y-sm">
+<div class="p-sm border border-outline-variant rounded hover:border-primary cursor-pointer">
+<div class="flex justify-between">
+<span class="font-bold text-sm">Kampala Central Hub</span>
+<span class="text-secondary-fixed-dim text-[10px]">Online</span>
+</div>
+<div class="text-[10px] text-on-surface-variant">Authorized Cash-In/Out Agent</div>
+</div>
+<div class="p-sm border border-outline-variant rounded hover:border-primary cursor-pointer">
+<div class="flex justify-between">
+<span class="font-bold text-sm">Nairobi West Agent</span>
+<span class="text-secondary-fixed-dim text-[10px]">Online</span>
+</div>
+<div class="text-[10px] text-on-surface-variant">M-Pesa Specialist</div>
+</div>
+</div>
+</div>
+<!-- Institutional Oversight -->
+<div class="glass-panel rim-light rounded p-md bg-primary/5">
+<h2 class="font-label-caps text-label-caps text-primary mb-md">Institutional Oversight</h2>
+<div class="space-y-md">
+<div class="flex justify-between items-center">
+<span class="text-xs text-on-surface-variant">Markup Tracking</span>
+<span class="text-xs font-bold text-primary">30% Fixed</span>
+</div>
+<div class="bg-[#05070A] p-sm rounded border border-outline-variant"><div class="flex justify-between items-end mb-md"><div><div class="text-[10px] text-on-surface-variant mb-xs">Total Markup Revenue (MTD)</div><div class="text-headline-sm font-data-lg text-secondary-fixed-dim">$12,450.00</div></div><div class="flex items-end gap-xs h-8"><div class="w-1 bg-secondary-fixed-dim/30 h-1/2 rounded-full"></div><div class="w-1 bg-secondary-fixed-dim/50 h-3/4 rounded-full"></div><div class="w-1 bg-secondary-fixed-dim h-full rounded-full"></div><div class="w-1 bg-secondary-fixed-dim/70 h-2/3 rounded-full"></div><div class="w-1 bg-secondary-fixed-dim/40 h-1/3 rounded-full"></div></div></div><div class="space-y-xs pt-sm border-t border-outline-variant/30"><div class="flex justify-between text-[10px] font-data-md"><span class="text-on-surface-variant">Revenue from Volatility</span><span class="text-on-surface">$7,120.40</span></div><div class="flex justify-between text-[10px] font-data-md"><span class="text-on-surface-variant">Revenue from Synthetic</span><span class="text-on-surface">$5,329.60</span></div><div class="flex justify-between text-[10px] font-data-md pt-xs border-t border-outline-variant/10"><span class="text-primary">EA Provider Markup (30%)</span><span class="text-primary">$2,415.00</span></div></div></div>
+<p class="text-[10px] text-on-surface-variant italic">All transactions are subject to institutional compliance and automated markup distribution.</p>
+</div>
+</div>
+</div>
+</div></main>
+</div>
+<div class="fixed inset-0 z-[100] flex items-center justify-center bg-background/80 backdrop-blur-sm hidden" id="transaction-modal">
+<div class="glass-panel rim-light rounded-xl p-lg max-w-md w-full mx-grid-margin relative overflow-hidden">
+<div class="scanning-line"></div>
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Confirm Transaction</h3>
+<button class="text-on-surface-variant hover:text-primary" onclick="document.getElementById('transaction-modal').classList.add('hidden')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="space-y-md mb-lg">
+<div class="p-sm bg-surface-container rounded border border-outline-variant">
+<div class="text-label-caps text-on-surface-variant mb-xs">Withdrawal Limits</div>
+<div class="flex justify-between text-data-md">
+<span>Minimum:</span>
+<span class="text-primary">$2.00</span>
+</div>
+<div class="flex justify-between text-data-md">
+<span>Maximum:</span>
+<span class="text-secondary-fixed-dim">Unlimited*</span>
+</div>
+<p class="text-[10px] text-on-surface-variant mt-xs italic">*Subject to provider constraints</p>
+</div>
+<div class="p-sm bg-error-container/20 border border-error/30 rounded hidden" id="emergency-notice">
+<div class="flex items-center gap-xs text-error mb-xs">
+<span class="material-symbols-outlined text-sm">warning</span>
+<span class="font-label-caps text-[10px]">Emergency Account Logic Active</span>
+</div>
+<p class="text-[10px] text-on-surface-variant">Accounts inactive &gt;3 months with balance &lt;$2 are subject to automated liquidation protocols.</p>
+</div>
+</div>
+<div class="flex gap-md">
+<button class="flex-1 py-sm border border-outline-variant rounded font-label-caps text-label-caps hover:bg-surface-container-highest transition-colors" onclick="document.getElementById('transaction-modal').classList.add('hidden')">Cancel</button>
+<button class="flex-1 py-sm bg-primary text-[#05070A] rounded font-label-caps text-label-caps hover:shadow-[0_0_15px_rgba(255,42,122,0.3)] transition-all">Confirm</button>
+</div>
+</div>
+</div><div class="fixed inset-0 z-[100] flex items-center justify-center bg-background/80 backdrop-blur-sm hidden" id="two-fa-modal">
+<div class="glass-panel rim-light rounded-xl p-lg max-w-md w-full mx-grid-margin relative overflow-hidden">
+<div class="scanning-line"></div>
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">2FA Verification</h3>
+<button class="text-on-surface-variant hover:text-primary" onclick="document.getElementById('two-fa-modal').classList.add('hidden')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="space-y-md mb-lg">
+<div class="text-center">
+<p class="text-sm text-on-surface-variant mb-md">Enter the 6-digit code from your authenticator app to authorize this action.</p>
+<div class="flex justify-center gap-sm">
+<input class="w-10 h-12 bg-[#05070A] border border-outline-variant rounded text-center text-xl font-data-lg focus:border-primary outline-none" maxlength="1" type="text"/>
+<input class="w-10 h-12 bg-[#05070A] border border-outline-variant rounded text-center text-xl font-data-lg focus:border-primary outline-none" maxlength="1" type="text"/>
+<input class="w-10 h-12 bg-[#05070A] border border-outline-variant rounded text-center text-xl font-data-lg focus:border-primary outline-none" maxlength="1" type="text"/>
+<input class="w-10 h-12 bg-[#05070A] border border-outline-variant rounded text-center text-xl font-data-lg focus:border-primary outline-none" maxlength="1" type="text"/>
+<input class="w-10 h-12 bg-[#05070A] border border-outline-variant rounded text-center text-xl font-data-lg focus:border-primary outline-none" maxlength="1" type="text"/>
+<input class="w-10 h-12 bg-[#05070A] border border-outline-variant rounded text-center text-xl font-data-lg focus:border-primary outline-none" maxlength="1" type="text"/>
+</div>
+</div>
+<div class="p-sm border border-primary/30 bg-primary/5 rounded flex items-center justify-between mb-sm">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">fingerprint</span>
+<span class="text-xs font-medium">Biometric Verification</span>
+</div>
+<span class="text-[10px] font-label-caps text-secondary-fixed-dim">Ready</span>
+</div><div class="p-sm bg-surface-container rounded border border-outline-variant">
+<div class="text-label-caps text-on-surface-variant mb-xs">Security Status</div>
+<div class="flex items-center gap-xs text-secondary-fixed-dim">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+<span class="text-data-md">Mwenebigimba Shield Active</span>
+</div>
+</div>
+</div>
+<div class="flex gap-md">
+<button class="flex-1 py-sm border border-outline-variant rounded font-label-caps text-label-caps hover:bg-surface-container-highest transition-colors" onclick="document.getElementById('two-fa-modal').classList.add('hidden')">Cancel</button>
+<button class="flex-1 py-sm bg-primary text-[#05070A] rounded font-label-caps text-label-caps hover:shadow-[0_0_15px_rgba(255,42,122,0.3)] transition-all">Verify</button>
+</div>
+</div>
+</div></body></html>
