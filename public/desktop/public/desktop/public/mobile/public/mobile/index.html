@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mwenebigimba - Master Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#b9cacb",
+                        "outline-variant": "#3b494b",
+                        "secondary": "#d7ffc5",
+                        "inverse-surface": "#dee2f2",
+                        "on-primary-fixed-variant": "#4d0033",
+                        "secondary-fixed-dim": "#2ae500",
+                        "primary-fixed-dim": "#ff3399",
+                        "on-secondary-fixed": "#022100",
+                        "primary": "#ff80df",
+                        "surface-container-low": "#171b27",
+                        "inverse-on-surface": "#2b303c",
+                        "on-error": "#690005",
+                        "surface-tint": "#ff3399",
+                        "on-secondary-container": "#0f6d00",
+                        "error": "#ffb4ab",
+                        "on-secondary": "#053900",
+                        "on-background": "#dee2f2",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "on-tertiary-container": "#c10014",
+                        "surface-variant": "#303541",
+                        "error-container": "#93000a",
+                        "surface-dim": "#0e131e",
+                        "secondary-fixed": "#79ff5b",
+                        "surface-container": "#1b1f2b",
+                        "on-surface": "#dee2f2",
+                        "tertiary-fixed": "#ffdad6",
+                        "surface-bright": "#343946",
+                        "on-primary-fixed": "#330022",
+                        "secondary-container": "#2ff801",
+                        "surface-container-highest": "#303541",
+                        "on-primary": "#4d0033",
+                        "primary-fixed": "#ff66b3",
+                        "primary-container": "#ff007f",
+                        "tertiary": "#fff3f2",
+                        "on-tertiary-fixed-variant": "#93000c",
+                        "background": "#0e131e",
+                        "on-primary-container": "#ffd9f2",
+                        "surface-container-lowest": "#090e19",
+                        "inverse-primary": "#ff007f",
+                        "surface-container-high": "#252a36",
+                        "outline": "#849495",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#0e131e",
+                        "on-secondary-fixed-variant": "#095300",
+                        "on-tertiary": "#690006",
+                        "tertiary-container": "#ffcec8",
+                        "on-tertiary-fixed": "#410002"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "base": "4px",
+                        "lg": "24px",
+                        "xl": "48px",
+                        "grid-margin": "24px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "grid-gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "data-lg": ["JetBrains Mono"],
+                        "data-md": ["JetBrains Mono"],
+                        "body-lg": ["Inter"],
+                        "label-caps": ["JetBrains Mono"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "headline-sm": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "data-lg": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "data-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(22, 27, 34, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 0, 127, 0.1);
+        }
+        .rim-light {
+            box-shadow: inset 0 1px 0 0 rgba(255, 0, 127, 0.1);
+        }
+        .active-glow {
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.3);
+            border-color: rgba(255, 0, 127, 0.5);
+        }
+        
+        /* Pink Pulse Ambient Shader */
+        @keyframes pink-pulse {
+            0% { opacity: 0.3; transform: scale(1) translate(0, 0); }
+            50% { opacity: 0.6; transform: scale(1.1) translate(-20px, 20px); }
+            100% { opacity: 0.3; transform: scale(1) translate(0, 0); }
+        }
+        .bg-shader-blob-1 {
+            position: absolute;
+            top: -10%; left: -10%;
+            width: 50vw; height: 50vw;
+            background: radial-gradient(circle, rgba(255,0,127,0.4) 0%, transparent 70%);
+            animation: pink-pulse 10s infinite ease-in-out;
+            pointer-events: none;
+            z-index: -1;
+            filter: blur(40px);
+        }
+        .bg-shader-blob-2 {
+            position: absolute;
+            bottom: -10%; right: -10%;
+            width: 60vw; height: 60vw;
+            background: radial-gradient(circle, rgba(255,102,179,0.3) 0%, transparent 70%);
+            animation: pink-pulse 12s infinite ease-in-out reverse;
+            pointer-events: none;
+            z-index: -1;
+            filter: blur(50px);
+        }
+
+        /* Tick Animation */
+        @keyframes tick-up {
+            0% { transform: translateY(10px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        .tick-item {
+            animation: tick-up 0.3s ease-out forwards;
+        }
+
+        .watermark {
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 6rem;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.02);
+            pointer-events: none;
+            z-index: 0;
+            white-space: nowrap;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col relative">
+<!-- Pink Ambient Shader -->
+<div class="bg-shader-blob-1"></div>
+<div class="bg-shader-blob-2"></div>
+<!-- Watermark -->
+<div class="watermark font-headline-md">MWENEBIGIMBA</div>
+<!-- Hidden Logic / Revenue Tracking -->
+<div class="hidden" data-purpose="revenue-tracking">
+    Revenue: 30% Shared Margin | MTG Summary Active
+</div>
+<!-- Mobile Top Navigation -->
+<header class="bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 sticky top-0 z-50 px-md py-sm flex justify-between items-center h-16 shadow-sm">
+<div class="flex items-center gap-sm">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-primary leading-tight">Mwenebigimba</span>
+<span class="font-label-caps text-[8px] text-on-surface-variant uppercase tracking-widest">Institutional Grade</span>
+</div>
+<span class="bg-primary-container/20 border border-primary-container text-primary text-[10px] px-2 py-0.5 rounded uppercase font-bold tracking-wider">Admin</span>
+</div>
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button><button class="text-on-surface-variant hover:text-primary transition-colors flex items-center" title="Toggle Privacy Mode"><span class="material-symbols-outlined" data-icon="visibility">visibility</span></button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</header>
+<main class="flex-1 p-md flex flex-col gap-md max-w-[600px] mx-auto w-full pb-24 relative z-10">
+<!-- Dashboard Hub -->
+<div class="flex justify-between items-center mb-xs px-1"><h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Portfolio Overview</h3><button class="text-primary hover:text-primary-fixed-dim flex items-center gap-1 transition-colors"><span class="material-symbols-outlined text-[20px]" data-icon="visibility">visibility</span><span class="text-[10px] font-bold uppercase tracking-wider">Privacy</span></button></div><section class="grid grid-cols-2 gap-sm">
+<button class="glass-panel rounded-xl p-md flex flex-col items-center justify-center gap-sm hover:border-primary transition-all active:scale-95 group">
+<span class="material-symbols-outlined text-3xl text-primary group-hover:text-primary-fixed-dim" data-icon="monitoring">monitoring</span>
+<span class="font-data-md text-data-md text-on-surface">Live Analysis</span>
+</button>
+<button class="glass-panel rounded-xl p-md flex flex-col items-center justify-center gap-sm hover:border-primary transition-all active:scale-95 group">
+<span class="material-symbols-outlined text-3xl text-primary group-hover:text-primary-fixed-dim" data-icon="online_prediction">online_prediction</span>
+<span class="font-data-md text-data-md text-on-surface">Signal Center</span>
+</button>
+<button class="glass-panel rounded-xl p-md flex flex-col items-center justify-center gap-sm hover:border-primary transition-all active:scale-95 group">
+<span class="material-symbols-outlined text-3xl text-primary group-hover:text-primary-fixed-dim" data-icon="pie_chart">pie_chart</span>
+<span class="font-data-md text-data-md text-on-surface">Portfolio</span>
+</button>
+<button class="glass-panel rounded-xl p-md flex flex-col items-center justify-center gap-sm hover:border-primary transition-all active:scale-95 group">
+<span class="material-symbols-outlined text-3xl text-primary group-hover:text-primary-fixed-dim" data-icon="payments">payments</span>
+<span class="font-data-md text-data-md text-on-surface">Payment Portal</span>
+</button>
+</section>
+<!-- Analysis Controls & Execution -->
+<section class="glass-panel rim-light rounded-xl p-md flex flex-col gap-md">
+<div class="flex justify-between items-center mb-xs">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Trading Controls</h3>
+<button class="text-primary hover:text-primary-fixed-dim bg-primary/10 p-1 rounded-full flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="refresh">refresh</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-sm">
+<div class="flex flex-col gap-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant">Stake ($)</label>
+<input class="bg-surface-container-low border border-outline-variant rounded-lg p-sm font-data-md text-data-md text-on-surface focus:border-primary-fixed-dim focus:ring-1 focus:ring-primary-fixed-dim transition-colors" type="number" value="10"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant">Duration (Ticks)</label>
+<input class="bg-surface-container-low border border-outline-variant rounded-lg p-sm font-data-md text-data-md text-on-surface focus:border-primary-fixed-dim focus:ring-1 focus:ring-primary-fixed-dim transition-colors" type="number" value="5"/>
+</div>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant">Trade Type</label>
+<div class="flex rounded-lg overflow-hidden border border-outline-variant">
+<button class="flex-1 bg-surface-container-low p-sm text-center font-data-md text-data-md text-on-surface hover:bg-surface-bright transition-colors">Matches</button>
+<button class="flex-1 bg-surface-bright p-sm text-center font-data-md text-data-md text-primary-fixed-dim border-l border-outline-variant active-glow">Differs</button>
+</div>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant">Prediction Digit</label>
+<div class="flex justify-between items-center bg-surface-container-low border border-outline-variant rounded-lg p-sm">
+<button class="text-outline-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" data-icon="remove">remove</span></button>
+<span class="font-data-lg text-data-lg text-on-surface">5</span>
+<button class="text-outline-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" data-icon="add">add</span></button>
+</div>
+</div>
+<div class="border-t border-outline-variant/50 pt-md mt-sm flex flex-col gap-md">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="autorenew">autorenew</span>
+<span class="font-data-md text-data-md text-on-surface">Auto-Martingale</span>
+</div>
+<!-- Custom Toggle -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-fixed-dim"></div>
+</label>
+</div>
+</div>
+<div class="flex gap-sm mt-sm">
+<button class="flex-1 bg-surface-container-high border border-outline-variant text-on-surface font-headline-sm text-[16px] py-md rounded-xl hover:bg-surface-bright transition-all flex justify-center items-center gap-sm">
+<span class="material-symbols-outlined" data-icon="cancel">cancel</span>
+    Cancel
+</button>
+<button class="flex-1 bg-primary-container text-on-primary-container font-headline-sm text-[16px] py-md rounded-xl shadow-[0_0_20px_rgba(255,0,127,0.2)] hover:shadow-[0_0_30px_rgba(255,0,127,0.4)] transition-all flex justify-center items-center gap-sm">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+    Execute Differs
+</button>
+</div>
+</section>
+<!-- Payment Portal -->
+<section class="glass-panel rim-light rounded-xl p-md flex flex-col gap-md">
+<div class="flex justify-between items-center mb-xs">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Payment Portal</h3>
+</div>
+<div class="grid grid-cols-2 gap-sm">
+<button class="bg-surface-container-low border border-outline-variant rounded-lg p-sm flex items-center justify-center gap-2 hover:border-primary transition-colors">
+<span class="text-[12px] font-data-md">MTN / Airtel (UG)</span>
+</button>
+<button class="bg-surface-container-low border border-outline-variant rounded-lg p-sm flex items-center justify-center gap-2 hover:border-primary transition-colors">
+<span class="text-[12px] font-data-md">M-Pesa (KE)</span>
+</button>
+<button class="bg-surface-container-low border border-outline-variant rounded-lg p-sm flex items-center justify-center gap-2 hover:border-primary transition-colors">
+<span class="text-[12px] font-data-md">Tigo / Voda (TZ)</span>
+</button>
+<button class="bg-surface-container-low border border-outline-variant rounded-lg p-sm flex items-center justify-center gap-2 hover:border-primary transition-colors">
+<span class="text-[12px] font-data-md">MoMo (RW/BI)</span>
+</button>
+</div>
+</section>
+<!-- Security & Permissions -->
+<section class="glass-panel rim-light rounded-xl p-md flex flex-col gap-md">
+<div class="flex justify-between items-center mb-xs">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Security &amp; Permissions</h3>
+</div>
+<div class="flex flex-col gap-sm">
+<div class="flex justify-between items-center bg-surface-container-low p-sm rounded-lg border border-outline-variant">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="fingerprint">fingerprint</span>
+<span class="font-data-md text-[14px]">Biometric Auth</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-fixed-dim"></div>
+</label>
+</div>
+<div class="flex justify-between items-center bg-surface-container-low p-sm rounded-lg border border-outline-variant">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="usb">usb</span>
+<span class="font-data-md text-[14px]">Hardware Key (YubiKey)</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-fixed-dim"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Code Security -->
+<section class="glass-panel rim-light rounded-xl p-md flex flex-col gap-md">
+<div class="flex justify-between items-center mb-xs">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Code Security</h3>
+<span class="bg-primary/10 text-primary text-[10px] px-2 py-0.5 rounded uppercase font-bold tracking-wider">Anti-Tamper Active</span>
+</div>
+<div class="flex flex-col gap-sm">
+<div class="flex justify-between items-center bg-surface-container-low p-sm rounded-lg border border-primary/30">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="security">security</span>
+<div class="flex flex-col">
+<span class="font-data-md text-[14px]">Source Integrity</span>
+<span class="font-body-sm text-[10px] text-on-surface-variant">Obfuscation &amp; Checksums</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-fixed-dim"></div>
+</label>
+</div>
+<div class="flex justify-between items-center bg-surface-container-low p-sm rounded-lg border border-primary/30">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="gpp_good">gpp_good</span>
+<div class="flex flex-col">
+<span class="font-data-md text-[14px]">Payload Encryption</span>
+<span class="font-body-sm text-[10px] text-on-surface-variant">AES-256 E2E</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-fixed-dim"></div>
+</label>
+</div>
+</div>
+</section>
+</main>
+<!-- Mobile Bottom Navigation -->
+<nav class="fixed bottom-0 w-full bg-surface-dim/95 backdrop-blur-xl border-t border-outline-variant flex justify-around items-center h-16 pb-safe z-50">
+<button class="flex flex-col items-center gap-1 text-primary-container font-bold transition-colors p-sm relative">
+<!-- Active indicator -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-1 bg-primary-container rounded-b-full"></div>
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-caps text-[10px]">Dashboard</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors p-sm">
+<span class="material-symbols-outlined" data-icon="online_prediction">online_prediction</span>
+<span class="font-label-caps text-[10px]">Signals</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors p-sm">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label-caps text-[10px]">Portfolio</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors p-sm">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-caps text-[10px]">Settings</span>
+</button>
+</nav>
+</body></html>
